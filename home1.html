@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/edu/art/5cde926ae4e60.jpeg);
+            background-blend-mode:hard-light; 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        header img {
+            position: absolute;
+            top: 10px; 
+            left: 10px;
+            max-height: 100px; 
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            background-color: grey; 
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            border: none; 
+            background-color: grey; 
+            color: white;
+        }
+
+        .dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://png.pngtree.com/png-clipart/20211017/original/pngtree-school-logo-png-image_6851480.png" alt="School Logo"> 
+        <h1>Result Management System</h1>
+    </header>
+    <nav>
+        <div class="button-container">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <button onclick="toggleAdminDropdown()" class="dropbtn">Admin</button>
+                <div id="admin-menu" class="dropdown-content">
+                    <a href="admin_login.html">Admin Login</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="toggleStudentDropdown()" class="dropbtn">Student</button>
+                <div id="student-menu" class="dropdown-content">
+                    <a href="student_login.html">Student Login</a>
+                    <a href="messageStudent.html">Message</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="container">
+        <!-- Content goes here -->
+    </section>
+
+    <script>
+        function toggleAdminDropdown() {
+            var adminMenu = document.getElementById("admin-menu");
+            var studentMenu = document.getElementById("student-menu");
+
+            studentMenu.style.display = "none";
+
+            if (adminMenu.style.display === "none") {
+                adminMenu.style.display = "block";
+            } else {
+                adminMenu.style.display = "none";
+            }
+        }
+
+        function toggleStudentDropdown() {
+            var adminMenu = document.getElementById("admin-menu");
+            var studentMenu = document.getElementById("student-menu");
+
+            adminMenu.style.display = "none";
+
+            if (studentMenu.style.display === "none") {
+                studentMenu.style.display = "block";
+            } else {
+                studentMenu.style.display = "none";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

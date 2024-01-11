@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background_image.jpg'); /* Replace 'background_image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to the container for better readability */
+            border-radius: 10px; /* Optional: Add rounded corners to the container */
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #messages {
+            margin-top: 20px;
+        }
+
+        #messages p {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Messages</h1>
+    </header>
+
+    <div class="container">
+        <form id="messageForm">
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="button" onclick="submitMessage()">Submit Message</button>
+        </form>
+
+        <div id="messages">
+            <!-- Display submitted messages here -->
+        </div>
+    </div>
+
+    <script>
+        function submitMessage() {
+            var rollNumber = document.getElementById("rollNumber").value;
+            var message = document.getElementById("message").value;
+
+            if (rollNumber.trim() !== "" && message.trim() !== "") {
+                var messagesContainer = document.getElementById("messages");
+                var newMessageElement = document.createElement("p");
+                newMessageElement.textContent = message;
+                messagesContainer.appendChild(newMessageElement);
+
+                // Optionally, you can clear the input fields after submitting
+                document.getElementById("rollNumber").value = "";
+                document.getElementById("message").value = "";
+            } else {
+                alert("Please enter both Roll Number and Message before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
